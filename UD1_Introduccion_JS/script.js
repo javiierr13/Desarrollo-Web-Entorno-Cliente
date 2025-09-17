@@ -20,3 +20,15 @@ function pintar_ruta_v2() {
     console.log(substring1 + " " + substring2);
 }
 
+//ejercicio 4
+function mostrar_potencia(){
+    var num = 2*Math.pow(10,-9);
+    console.log("El valor de 2 por 10 elevado a -9 es: " + num);
+}
+
+//ejercicio 5
+function muestra_n_distintas_bases(num){
+    //transformar a binario
+    var numDecimal = num.toString(2);
+    console.log("El número " + num + " en binario es: " + numDecimal);
+}
