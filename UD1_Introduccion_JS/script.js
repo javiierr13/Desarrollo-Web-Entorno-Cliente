@@ -21,14 +21,73 @@ function pintar_ruta_v2() {
 }
 
 //ejercicio 4
-function mostrar_potencia(){
-    var num = 2*Math.pow(10,-9);
+function mostrar_potencia() {
+    var num = 2 * Math.pow(10, -9);
     console.log("El valor de 2 por 10 elevado a -9 es: " + num);
 }
 
 //ejercicio 5
-function muestra_n_distintas_bases(num){
-    //transformar a binario
+function muestra_n_distintas_bases(num) {
     var numDecimal = num.toString(2);
     console.log("El número " + num + " en binario es: " + numDecimal);
+    var numDecimal = num.toString(10);
+    console.log("El número " + num + " en decimal es: " + numDecimal);
+    var numHexadecimal = num.toString(16);
+    console.log("El número " + num + " en hexadecimal es: " + numHexadecimal);
+    var numOctal = num.toString(8);
+    console.log("El número " + num + " en octal es: " + numOctal);
+}
+
+//ejercicio 6
+function dividirCero(num) {
+    var resultado = num / 0;
+    resultado += 23;
+    console.log("El resultado de la operación es: " + resultado);
+}
+
+//ejercicio 7
+function fuerzaNaN(num) {
+    var resultado = num / "hola";
+    console.log("El resultado de la operación es: " + resultado);
+}
+
+//ejercicio 10
+function check_ambito_variables() {
+    let prueba = 5;
+    console.log("La variable prueba tiene como valor: " + prueba);
+
+    {
+        let prueba2 = 10;
+        console.log("Insisto. La variable prueba tiene como valor: " + prueba + " tambien dentro del bloque anidado.");
+        console.log("Ademas, el bloque interior alberga la variable prueba2 que vale " + prueba2);
+    }
+
+    console.log("Por ultimo, desde el bloque principal, intento acceder al valor de una variable interna: " + prueba2);
+
+}
+
+//ejercicio 11
+function definir_y_mostrar_array() {
+    let array = ["Alberto", "Juan", "Sofía"];
+
+    /*for (let i = 0; i < array.length; i++) {
+        console.log(array[i])
+    }*/
+
+    console.table(array);
+}
+
+//ejercicio 12
+function contar_y_temporizar() {
+
+    let valor = 0;
+    let initTime = new Date();
+
+    for (let i = 0; i < 100000; i++) {
+        valor += 10;
+    }
+
+    let endTime = new Date();
+    console.log("El valor es: " + valor);
+    console.log("El tiempo transcurrido es: " + ((endTime - initTime) / 1000) + " segundos");
 }
