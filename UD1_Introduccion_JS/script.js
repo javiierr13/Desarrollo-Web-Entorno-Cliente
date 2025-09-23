@@ -91,3 +91,75 @@ function contar_y_temporizar() {
     console.log("El valor es: " + valor);
     console.log("El tiempo transcurrido es: " + ((endTime - initTime) / 1000) + " segundos");
 }
+
+//ejercicio 13
+function error_sin_valor() {
+    console.error("!Error, no se ha encontrado ningun valor");
+}
+
+//ejercicio 14 
+function confirmar_eliminacion() {
+    let confirmacion = window.confirm("¿Estás seguro de que deseas eliminar este elemento?");
+    if (confirmacion) {
+        console.log("Elemento eliminado.");
+    } else {
+        console.log("Eliminación cancelada.");
+    }
+}
+
+//ejercicio 15
+function pedir_datos() {
+    let seguir = true;
+
+    while (seguir) {
+        let nombre = prompt("Introduce su nombre");
+        console.log("Hola " + nombre);
+        seguir = confirm("desea continuar en el programa?");//confirm devuelve true o false, en valor en la respuesta
+        console.log("has decidido continuar? " + seguir);
+    }
+    console.log("FIN DEL PROGRAMA");
+}
+
+//ejercicio 16 
+function edad_mayor_numero() {
+    let nombre = prompt("Introduce su nombre");
+    let edad = prompt("Introduce su edad");
+    let ciudad = prompt("Introduce su ciudad");
+    let nTelefono = prompt("Introduce su número de teléfono");
+
+    if (edad ** 5 == nTelefono || ciudad === "Mairena del Alcor") {
+        console.log("Enhorabuena " + nombre);
+    } else {
+        console.log("Ni uno ni otro mamia");
+    }
+
+    console.log("FIN DEL PROGRAMA");
+}
+
+//ejercicio 16 con formulario
+function datos_personales() {
+    let nombre = document.getElementById("nombre").value;
+    let edad = document.getElementById("edad").value;
+    let ciudad = document.getElementById("direccion").value;
+    let nTelefono = document.getElementById("telefono").value;
+
+    if (edad ** 5 == nTelefono || ciudad === "Mairena del Alcor") {
+        console.log("Enhorabuena " + nombre);
+    } else {
+        console.log("Ni uno ni otro mamia");
+    }
+
+    console.log("FIN DEL PROGRAMA");
+}
+
+//ejercicio 17 Haz un programa que dado un número de entrada cuente sus cifras y las muestre
+//por consola
+function contar_cifras(numero) {
+    let contador = 0;
+    numero = Math.abs(prompt("Introduce un número"));
+    while (numero >= 1) {
+        numero = numero / 10;
+        contador++;
+    }
+    console.log("El número tiene " + contador + " cifras.");
+}
