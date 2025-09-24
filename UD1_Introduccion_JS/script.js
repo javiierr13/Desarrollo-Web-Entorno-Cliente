@@ -163,3 +163,83 @@ function contar_cifras(numero) {
     }
     console.log("El número tiene " + contador + " cifras.");
 }
+
+//ejercicio 18
+function dame_edad() {
+    let edad = document.getElementById("edad").value;
+    switch (true) {
+        case (edad >= 0 && edad <= 16):
+            pintar_mensaje("Eres niño.", true);
+            break;
+        case (edad >= 17 && edad <= 25):
+            pintar_mensaje("Eres joven.", true);
+            break;
+        case (edad >= 26 && edad <= 60):
+            pintar_mensaje("Eres adulto.", true);
+            break;
+        case (edad > 60):
+            pintar_mensaje("Eres senior.", true);
+            break;
+        default:
+            pintar_mensaje("ERROR!, edad no válida.", false);
+    }
+
+    /*let edad = document.getElementById("edad").value;
+    if (edad >= 0 && edad <= 16) {
+        console.log("Eres niño.", true);
+    } else if (edad >= 17 && edad <= 25) {
+        console.log("Eres joven.", true);
+    } else if (edad >= 26 && edad <= 60) {
+        console.log("Eres adulto.", true);
+    } else if (edad > 60) {
+        console.log("Eres senior.", true);
+    } else {
+        console.error("ERROR!, edad no válida.", error);
+    }*/
+}
+
+function pintar_mensaje(mensaje, isOk) {
+    {
+        let aviso = document.getElementById("aviso");
+        aviso.textContent = mensaje;
+
+        if (isOk) {
+            aviso.style.color = "green";
+        } else {
+            aviso.style.color = "red";
+        }
+    }
+}
+
+
+//ejercicio 19
+function acierta_aleatorio(){
+    const aleat = Math.floor((Math.random() * 10) + 1);
+    let intento = 0;
+
+    alert("Se ha calculado un numero aleatorio. ¿Eres capaz de acertarlo?");
+
+    do{
+        intento ++;
+        var valor_intento = Number(prompt("Intento " + intento));
+    }while(valor_intento != aleat);
+
+    console.log("Enhorabuena! has acertado. El numero secreto era el " + aleat);
+    console.log("Has necesitado " + intento + " intentos");
+
+}
+
+//ejercicio 20
+function multiplo() {
+    let num = Number(prompt("Introduce un número"));
+    let multiplos = 0;
+    const max = 100;
+    
+    for (let i = num + 1; i < max; i++) {
+        if (i % num === 0) {
+            multiplos++;
+            console.log("multiplo encontrado: " + i);
+        }
+    }
+    console.log("Los múltiplos de " + num + " son: " + multiplos);
+}
