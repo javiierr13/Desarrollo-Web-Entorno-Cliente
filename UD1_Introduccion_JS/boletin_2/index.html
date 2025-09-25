@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boletín 2</title>
+    <script src="scriptS.js"></script>
+</head>
+
+<body>
+    <h1>Boletín 02</h1>
+    <hr />
+    <h2> UD1. Introdución a Javascript</h2>
+
+    <div class="ejercicio 0">
+        <h3>Ejercicio 0 (Inventado por el profesor)</h3>
+        <p>Calcula la secuencia de fibonacci atendiendo a la formula:</p>
+        <ul>
+            <li>fib(n) = fib(n-1) + fib(n-2) </li>
+            <li>fib(0) = 0 </li>
+            <li>fib(1) = 1 </li>
+        </ul>
+        <button onclick="calcular_fibonacci()">Calcular Fibonacci</button>
+    </div>
+
+    <div class="ejercicio 1">
+        <h3>Ejercicio 1</h3>
+        <p>Calcula el factorial de un numero (n!)</p>
+        <ul>
+            <li>fact(n) = n * fact(n-1)</li>
+            <li>fact(0) = 1</li>
+        </ul>
+        <button onclick="calcular_factorial(true)">Calcular Factorial Recursivo</button>
+        <button onclick="calcular_factorial(false)">Calcular Factorial Tradicional</button>
+
+    </div>
+
+    <div class="ejercicio 2">
+        <h3>Ejercicio 2</h3>
+        <p>Desarrolla un programa que le pida al usuario una cantidad de dias en valor entero
+            y el programa debera devolver cuantas horas, minutos y segundos son
+        </p>
+
+        <button onclick="transformar_dias_horas()">Calcular</button>
+    </div>
+
+    <div class="ejercicio 3">
+        <h3>Ejercicio 3</h3>
+        <p>Realiza un programa capaz de resolver una ecuacion de segundo grado.
+            Para ello se soliciata el valor de los coeficientes a, b y c</p>
+        <button onclick="resolver_ecuacion_segundo_grado()">Calcular</button>
+    </div>
+
+</body>
+
+</html>
