@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Cuenta Atrás</title>
+</head>
+<body>
+  <h1>Cuenta Atrás Recursiva</h1>
+  <button onclick="cuentaAtras(5)">Iniciar Cuenta Atrás</button>
+
+  <script>
+    function cuentaAtras(num) {
+      if (num == 0) {
+        console.log("DESPEGUE");
+        return 0;
+      } else {
+        console.log(num);
+        return cuentaAtras(num - 1);
+      }
+    }
+  </script>
+</body>
+</html>

@@ -8,7 +8,8 @@ function menu() {
     let puntosTotales = 0;
     let maxPuntos = null;
     let minPuntos = null;
-
+    let tiempoInicio = null;
+    
     do {
         opcion = prompt("Elige una opción:\n1. Iniciar Juego \n2. Lanzar Dados \n3. Mostrar estadisticas de juego \n4. Salir");
         switch (opcion) {
@@ -18,7 +19,7 @@ function menu() {
                 } else {
                     juegoIniciado = true;
                     console.log("Juego Iniciado");
-                    var tiempoInicio = Date.now();
+                    tiempoInicio = Date.now();
 
                     nombre = prompt("Introduce tu nombre:");
                     edad = prompt("Introduce tu edad:");
@@ -86,8 +87,8 @@ function menu() {
                     console.error("Ni siquiera has iniciado el juego, payaso.");
                 } else {
                     var tiempoFin = Date.now();
-                    let minutos = ((tiempoFin - tiempoInicio) / 60000);
-                    console.log("Fin del juego. Has estado jugando " + minutos + " minutos.");
+                    let segundos = Math.floor((tiempoFin - tiempoInicio) / 1000);
+                    console.log("Fin del juego, has jugado " + segundos + " segundos.");
                 }
                 console.log("Saliendo del juego......");
                 break;
