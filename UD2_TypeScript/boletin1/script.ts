@@ -12,25 +12,41 @@ function ej1(): void {
 }
 
 //ejercicio 2
-function validaForm() {
-    console.log("Validando formulario....");
-    let expReg: RegExp = new RegExp("lo_que_sea");
+function valida_form() {
+    const regExp = new RegExp("[^\s@]+@[^\s@]+\.[^\s@]+$"); //Con fallos (hay que corregir)
 
-    //Primero nos aseguramos que no es nulo (porque no puede almacenar un nulo en HTMLInputElement)
-    if (document.getElementById("email") != null) {
-        let mensajeOK = document.createElement("span");
-        let email: HTMLInputElement | null = document.getElementById("email") as HTMLInputElement | null;
-
-        if (email && expReg.test(email.value)) {
-
-            mensajeOK.textContent= ("email INCORRECTO");
-
-        } else {
-            mensajeOK.textContent = ("email CORRECTO");
-
-        }
-
+    //Aplico la validacion de la expresion regular
+    if (regExp.test($inputValue("email"))) {
+        //Si test devuelve true quiere decir que el texto "email" cumple la expresion reg.
+        $writeNode("ok", "El email es valido") //Aquí escribo
+        $writeNode("error", ""); //Aquí escribo tambien (lo que pasa que borra)
+    } else {
+        //Si es false quiere decir que el texto "email" no cumple la expresion regular.
+        $writeNode("ok", "") //Aquí escribo (borrando el contenido)
+        $writeNode("error", "El email no cumple la expresion") //Aqui tambien escribo
     }
 }
+
+//Helpers (comunes para todo el boletín)
+function $inputValue(id: string): string {
+    const input = document.getElementById(id) as HTMLInputElement; //Lectura
+    let result = "";
+
+    if (input) {
+        result = input.value; //Recojo el valor (aqui es donde leo)
+    }
+
+    return result;
+}
+
+function $writeNode(id: string, msg: string): void {
+    const nodo = document.getElementById(id) as HTMLElement; //Escritura
+
+    if (nodo) {
+        nodo.textContent = msg;
+    }
+
+}
+
 
 

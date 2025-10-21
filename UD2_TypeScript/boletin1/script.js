@@ -7,18 +7,32 @@ function ej1() {
     console.log("Hora anterior: " + (fecha.getHours() - 1) + ":" + (fecha.getMinutes() - 1) + ":" + (fecha.getSeconds() - 1));
 }
 //ejercicio 2
-function validaForm() {
-    console.log("Validando formulario....");
-    var expReg = new RegExp("lo_que_sea");
-    //Primero nos aseguramos que no es nulo (porque no puede almacenar un nulo en HTMLInputElement)
-    if (document.getElementById("email") != null) {
-        var mensajeOK = document.createElement("span");
-        var email = document.getElementById("email");
-        if (email && expReg.test(email.value)) {
-            mensajeOK.textContent = ("email INCORRECTO");
-        }
-        else {
-            mensajeOK.textContent = ("email CORRECTO");
-        }
+function valida_form() {
+    var regExp = new RegExp("[^\s@]+@[^\s@]+\.[^\s@]+$"); //Con fallos (hay que corregir)
+    //Aplico la validacion de la expresion regular
+    if (regExp.test($inputValue("email"))) {
+        //Si test devuelve true quiere decir que el texto "email" cumple la expresion reg.
+        $writeNode("ok", "El email es valido"); //Aquí escribo
+        $writeNode("error", ""); //Aquí escribo tambien (lo que pasa que borra)
+    }
+    else {
+        //Si es false quiere decir que el texto "email" no cumple la expresion regular.
+        $writeNode("ok", ""); //Aquí escribo (borrando el contenido)
+        $writeNode("error", "El email no cumple la expresion"); //Aqui tambien escribo
+    }
+}
+//Helpers (comunes para todo el boletín)
+function $inputValue(id) {
+    var input = document.getElementById(id); //Lectura
+    var result = "";
+    if (input) {
+        result = input.value; //Recojo el valor (aqui es donde leo)
+    }
+    return result;
+}
+function $writeNode(id, msg) {
+    var nodo = document.getElementById(id); //Escritura
+    if (nodo) {
+        nodo.textContent = msg;
     }
 }
