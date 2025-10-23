@@ -69,7 +69,7 @@ for (var i = 0; i < arrayPrueba.length; i++) {
         arrayMayorCinco1.push(arrayPrueba[i]);
     }
 }
-//filter
+//1.-filter
 var arrayMayorCinco2 = arrayPrueba.filter(function (data) { return data > 5; });
 console.log(arrayMayorCinco1);
 console.log(arrayMayorCinco2);

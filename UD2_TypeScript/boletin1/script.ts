@@ -92,7 +92,7 @@ for (let i = 0; i < arrayPrueba.length; i++) {
     }
 }
 
-//filter
+//1.-filter
 const arrayMayorCinco2 = arrayPrueba.filter(data => data > 5);
 
 console.log(arrayMayorCinco1);
