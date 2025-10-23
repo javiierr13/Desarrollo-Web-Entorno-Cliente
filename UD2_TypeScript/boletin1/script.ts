@@ -38,14 +38,14 @@ function ej3() {
 
 
 //ejercicio4
-function ej4(){
+function redirigeTo() {
     const regexp = new RegExp("^https:\/\/");
     let url = $inputValue("url");
-    if(regexp.test(url)){
+    if (regexp.test(url)) {
         window.location.href = url;
-    }else{
+    } else {
         $writeNode("error2", "Por favor introduzca una URL valida");
-        setTimeout(() => $writeNode("error2",""),5000);
+        setTimeout(() => $writeNode("error2", ""), 5000);
     }
 }
 
@@ -71,26 +71,79 @@ function $writeNode(id: string, msg: string): void {
 
 }
 
-function suma1(a:number, b:number) : number{
-    const result = a+b;
+
+//Ejemplo de funciones normales y su definición corta (flecha)
+function suma1(a: number, b: number): number {
+    const result = a + b;
     return result;
 }
 
-const suma2 = (a:number, b:number) => a+b;
-suma1(2,3);
-suma2(3,6);
+const suma2 = (a: number, b: number) => a + b;
+suma1(2, 3);
+suma2(3, 6);
 
+//Uso de funciones predefinidas en JS que hagan uso de funciones flecha: filter,reduce,foreach,some,every
+const arrayPrueba = [2, 4, 6, 8, 10];
+const arrayMayorCinco1 = [];
 
-const arrayPrueba=[2,4,6,8,10];
-const arrayMayorCinco1=[];
-
-for(let i = 0; i<arrayPrueba.length; i++){
-    if(arrayPrueba[i]>5){
+for (let i = 0; i < arrayPrueba.length; i++) {
+    if (arrayPrueba[i] > 5) {
         arrayMayorCinco1.push(arrayPrueba[i]);
     }
 }
 
-const arrayMayorCinco2=arrayPrueba.filter(data => data>5);
+//filter
+const arrayMayorCinco2 = arrayPrueba.filter(data => data > 5);
 
 console.log(arrayMayorCinco1);
 console.log(arrayMayorCinco2);
+
+//2.- Map
+const arrayDoble1 = [];
+
+for(let i = 0; i < arrayPrueba.length; i++){
+    arrayDoble1.push(arrayPrueba[i]*2);
+}
+
+const arrayDoble2 = arrayPrueba.map(data => data*2);
+
+console.log(arrayDoble1);
+console.log(arrayDoble2);
+
+//2.a.- Combo entre filter y map (filtrado y transormación)
+const arrayMayorCincoYDoble = arrayPrueba
+    .filter(data => data > 5)
+    .map(data => data*2);
+
+console.log(arrayMayorCincoYDoble);
+
+let total1 = 0;
+for(let i = 0; i < arrayPrueba.length; i++){
+    total1 = total1 + arrayPrueba[i];
+}
+
+const total2 = arrayPrueba.reduce((acc, data) => acc + data);
+
+console.log(total1);
+console.log(total2);
+
+//3.- Foreach
+for(let i = 0; i < arrayPrueba.length; i++){
+    console.log("Este es el elemento " + (i+1) + ": " + arrayPrueba[i]);
+}
+
+arrayPrueba.forEach((data, i) => console.log("Este es el elemento " + (i+1) + ": " + data));
+
+//4.- Some
+console.log(arrayPrueba.some(data => data > 8));
+
+//5.- Every
+console.log(arrayPrueba.every(data => data > 0));
+
+//Definir una función propia donde uno de sus parametros sea una función
+function resuelve_operacion(callback: (a:number,b: number) => number, a:number,  b:number){
+    console.log("Aqui todavia no he calculado la operacion");
+    const result = callback(a,b);
+    console.log("Aqui ya la he calculado y es: "  + result);
+    return result;
+}
