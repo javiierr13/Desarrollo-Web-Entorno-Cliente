@@ -27,6 +27,29 @@ function valida_form() {
     }
 }
 
+
+//ejercicio3
+function ej3() {
+    let ventanaNueva = window.open("https:www.google.es", "mi ventana");
+    ventanaNueva?.document.write("HOLA");
+
+
+}
+
+
+//ejercicio4
+function ej4(){
+    const regexp = new RegExp("^https:\/\/");
+    let url = $inputValue("url");
+    if(regexp.test(url)){
+        window.location.href = url;
+    }else{
+        $writeNode("error2", "Por favor introduzca una URL valida");
+        setTimeout(() => $writeNode("error2",""),5000);
+    }
+}
+
+
 //Helpers (comunes para todo el boletín)
 function $inputValue(id: string): string {
     const input = document.getElementById(id) as HTMLInputElement; //Lectura
@@ -48,5 +71,26 @@ function $writeNode(id: string, msg: string): void {
 
 }
 
+function suma1(a:number, b:number) : number{
+    const result = a+b;
+    return result;
+}
+
+const suma2 = (a:number, b:number) => a+b;
+suma1(2,3);
+suma2(3,6);
 
 
+const arrayPrueba=[2,4,6,8,10];
+const arrayMayorCinco1=[];
+
+for(let i = 0; i<arrayPrueba.length; i++){
+    if(arrayPrueba[i]>5){
+        arrayMayorCinco1.push(arrayPrueba[i]);
+    }
+}
+
+const arrayMayorCinco2=arrayPrueba.filter(data => data>5);
+
+console.log(arrayMayorCinco1);
+console.log(arrayMayorCinco2);
